@@ -4,6 +4,9 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import carReducer from './reducers/carReducer'
+// import { Provider } from 'react-redux';
+
 
 const App = () => {
   const state = {
@@ -29,13 +32,14 @@ const App = () => {
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+
   };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <AddedFeatures car={state.car}   />
       </div>
       <div className="box">
         <AdditionalFeatures store={state.store} />
@@ -44,5 +48,15 @@ const App = () => {
     </div>
   );
 };
+
+
+const mapStateToProps = state => {
+  return{
+    additionalPrice: state.additionalPrice,
+    car: state.car,
+    store:state.store
+
+  }
+}
 
 export default App;
